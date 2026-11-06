@@ -1,0 +1,12 @@
+/build/
+/work/
+/out/
+tests/*/build/
+__pycache__/
+*.pyc
+my_submission.txt
+*.vcd
+*.fst
+*.o
+*.elf
+*.bin

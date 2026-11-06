@@ -1,0 +1,76 @@
+{
+  "repos": {
+    "XiangShan": {
+      "commit": "16ae9ddcda54fc9a2fddffad73174cf793ac7814",
+      "dirty": "",
+      "submodules": "82079f4081bbc1f0221c790fbf8a29b1f23f48b8 coupledL2 (v0.9-247-g82079f40)\n 62e4540c03c03aa947bdb67f4b6bf66f1a29c5d0 difftest (remotes/origin/south-314-g62e4540c0)\n e1bd4695ca7beb36a5ce7357e9527ad9e95b9ec1 fudian (heads/pipeline)\n 90aaf5935206ff322e461c3d021436c20dd0ac85 huancun (remotes/origin/tmp_use_maxhartidbits-9-g90aaf59)\n 614ceb4c5d39d32e6ae786693a35da429ea32c12 openLLC (614ceb4)\n ed8c30e1ec8a9c9aa6b116ce54281235d00273fa ready-to-run (nemu-ci-workloads-20250913~23)\n bea0af5d855a871699b907c1988961141bbf28e7 rocket-chip (remotes/origin/fix-cnop-1-gbea0af5d8)\n 9464aee3c77b021a037f28aa1b3fe53c71b516f6 src/main/resources/aia (heads/main)\n a8ca0c6564865ee69b564d431ecbc52074ba8060 utility (remotes/origin/upd-onehot-90-ga8ca0c6)\n cadd3c2f43096e253d61296b33ac697be8354e29 yunsuan (remotes/origin/fix_pipeline-11-gcadd3c2)"
+    },
+    "NEMU": {
+      "commit": "a48a11f208ff81ad765591d83271d1b339fb3861",
+      "dirty": ""
+    },
+    "nexus-am": {
+      "commit": "086a238062fdfb3281b745a537b361983d0154b5",
+      "dirty": "M apps/hello/hello.c"
+    },
+    "xs-env": {
+      "commit": "cb1b5d9cc10dbc52677de4f9662e04bed69f2b2d"
+    }
+  },
+  "tools": {
+    "mill": {
+      "path": "/usr/local/bin/mill",
+      "version": [
+        "0.12.3"
+      ],
+      "source": "XiangShan/.mill-version"
+    },
+    "java": {
+      "path": "/opt/graalvm-jdk-21/bin/java",
+      "version": [
+        "java version \"21.0.12\" 2026-07-21 LTS",
+        "Java(TM) SE Runtime Environment Oracle GraalVM 21.0.12+7.1 (build 21.0.12+7-LTS-jvmci-23.1-b96)",
+        "Java HotSpot(TM) 64-Bit Server VM Oracle GraalVM 21.0.12+7.1 (build 21.0.12+7-LTS-jvmci-23.1-b96, mixed mode, sharing)"
+      ]
+    },
+    "verilator": {
+      "path": "/usr/local/bin/verilator",
+      "version": [
+        "Verilator 5.052 2026-09-05 rev v5.052"
+      ]
+    },
+    "riscv64-unknown-linux-gnu-gcc": {
+      "path": "/opt/riscv/bin/riscv64-unknown-linux-gnu-gcc",
+      "version": [
+        "riscv64-unknown-linux-gnu-gcc (g6afcc4f6da) 16.1.0",
+        "Copyright (C) 2026 Free Software Foundation, Inc.",
+        "This is free software; see the source for copying conditions.  There is NO"
+      ]
+    },
+    "gcc": {
+      "path": "/usr/lib/ccache/gcc",
+      "version": [
+        "gcc (Ubuntu 14.3.0-12ubuntu1~22~ppa2) 14.3.0",
+        "Copyright (C) 2024 Free Software Foundation, Inc.",
+        "This is free software; see the source for copying conditions.  There is NO"
+      ]
+    },
+    "make": {
+      "path": "/usr/bin/make",
+      "version": [
+        "GNU Make 4.3",
+        "Built for x86_64-pc-linux-gnu",
+        "Copyright (C) 1988-2020 Free Software Foundation, Inc."
+      ]
+    }
+  },
+  "memory": "total        used        free      shared  buff/cache   available\nMem:            19Gi       3.1Gi        10Gi       134Mi       5.7Gi        15Gi\nSwap:           15Gi          0B        15Gi",
+  "cpu_count": 16,
+  "base_config": "KunminghuV2Config",
+  "semantics": {
+    "elements": 16,
+    "sew": 8,
+    "vlen": 128,
+    "result_bits": 32
+  }
+}

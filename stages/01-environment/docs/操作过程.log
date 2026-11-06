@@ -1,0 +1,183 @@
+Script started on 2026-11-06 16:37:24+08:00 [<not executed on terminal>]
++ set -euo pipefail
+++ dirname scripts/stage1-run.sh
++ source scripts/env.sh
+++++ dirname -- scripts/env.sh
++++ cd -- scripts/..
++++ pwd
+++ KKS_ROOT=/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv
++++ cd /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/../xs-env
++++ pwd
+++ export XS_ENV=/home/hbyasts/2-corecode/riscv-xiangshan/xs-env
+++ XS_ENV=/home/hbyasts/2-corecode/riscv-xiangshan/xs-env
+++ export AM_HOME=/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am
+++ AM_HOME=/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am
+++ export NEMU_HOME=/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/NEMU
+++ NEMU_HOME=/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/NEMU
+++ export NOOP_HOME=/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/XiangShan
+++ NOOP_HOME=/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/XiangShan
+++ export DRAMSIM3_HOME=/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/DRAMsim3
+++ DRAMSIM3_HOME=/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/DRAMsim3
+++ export KKS_XS=/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan
+++ KKS_XS=/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan
+++ export KKS_NEMU=/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU
+++ KKS_NEMU=/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU
+++ export CROSS_COMPILE=riscv64-unknown-linux-gnu-
+++ CROSS_COMPILE=riscv64-unknown-linux-gnu-
+++ export PATH=/opt/riscv/bin:/opt/graalvm-jdk-21/bin:/home/hbyasts/.codex/tmp/arg0-linux/codex-arg09Dp2ui:/home/hbyasts/.npm-global/bin:/home/hbyasts/.local/bin:/usr/lib/ccache:/opt/riscv/bin:/home/hbyasts/tools/Xilinx/Vitis_HLS/2023.2/bin:/home/hbyasts/tools/Xilinx/Model_Composer/2023.2/bin:/home/hbyasts/tools/Xilinx/Vivado/2023.2/bin:/home/hbyasts/tools/Xilinx/Vitis/2023.2/bin:/home/hbyasts/anaconda3/bin:/home/hbyasts/anaconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hbyasts/tools/Xilinx/DocNav:/home/hbyasts/.vscode/extensions/openai.chatgpt-26.1021.22027-linux-x64/bin/linux-x86_64
+++ PATH=/opt/riscv/bin:/opt/graalvm-jdk-21/bin:/home/hbyasts/.codex/tmp/arg0-linux/codex-arg09Dp2ui:/home/hbyasts/.npm-global/bin:/home/hbyasts/.local/bin:/usr/lib/ccache:/opt/riscv/bin:/home/hbyasts/tools/Xilinx/Vitis_HLS/2023.2/bin:/home/hbyasts/tools/Xilinx/Model_Composer/2023.2/bin:/home/hbyasts/tools/Xilinx/Vivado/2023.2/bin:/home/hbyasts/tools/Xilinx/Vitis/2023.2/bin:/home/hbyasts/anaconda3/bin:/home/hbyasts/anaconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hbyasts/tools/Xilinx/DocNav:/home/hbyasts/.vscode/extensions/openai.chatgpt-26.1021.22027-linux-x64/bin/linux-x86_64
+++ export KKS_JOBS=4
+++ KKS_JOBS=4
++ cd /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv
++ export KKS_RUN_ID=20261106-163724
++ KKS_RUN_ID=20261106-163724
++ logs=stages/01-environment/logs/20261106-163724
++ evidence=stages/01-environment/evidence/20261106-163724
++ mkdir -p stages/01-environment/logs/20261106-163724 stages/01-environment/evidence/20261106-163724 build
++ : 192.168.230.128
++ printf 'STAGE1_RUN=%s\nHello XiangShan: build and execute\n' 20261106-163724
+STAGE1_RUN=20261106-163724
+Hello XiangShan: build and execute
++ TZ=Asia/Shanghai
++ date -Iseconds
+2026-11-06T16:37:24+08:00
++ cat tests/hello/main.c
+#include <klib.h>
+#include "identity.h"
+
+int main(void) {
+  /* 个人标识固定；虚拟机IP由构建时生成的 identity.h 提供。 */
+  printf("hello xiangshan, I am xvkongkabishourushishuo, IP address: %s\n", KKS_IP_ADDRESS);
+  return 0;
+}
++ bash scripts/build_app.sh hello
++ tee stages/01-environment/logs/20261106-163724/hello-build.log
+Hello IP: 192.168.230.128
+make: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/hello'
+# Building kks-hello [riscv64-xs] with AM_HOME {/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am}
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
++ CC main.c
+# Building lib-klib [riscv64-xs]
+make[2]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
+# Building lib-am [riscv64-xs]
++ AS src/nemu/common/mainargs.S
++ AR -> build/am-riscv64-xs.a
+make[2]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+# Creating binary image [riscv64-xs]
++ LD -> build/kks-hello-riscv64-xs.elf
++ OBJCOPY -> build/kks-hello-riscv64-xs.bin
+make: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/hello'
++ bash scripts/run_emu.sh hello baseline diff
+Running hello (baseline/diff), full log: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/build/logs/hello-baseline-diff.log
+KKS_RUN mode=diff variant=baseline
+The reference model is /home/hbyasts/2-corecode/riscv-xiangshan/xs-env/XiangShan/ready-to-run/riscv64-nemu-interpreter-so
+hello xiangshan, I am xvkongkabishourushishuo, IP address: 192.168.230.128
+
+[PERF ][time=               16199] SimTop.l_soCore 0: HIT GOOD TRAP at pc = 0x80000154
+Core-0 instrCnt = 2013, cycleCnt = 16196, IPC = 0.124290
+Host time spent: 10112ms
++ cp build/logs/hello-baseline-diff.log stages/01-environment/logs/20261106-163724/hello-full.log
++ printf '\nVector addition: build, disassemble and simulate with waveform\n'
+
+Vector addition: build, disassemble and simulate with waveform
++ cat tests/vadd/main.c
+#include "kks.h"
+
+static const int8_t lhs[16] __attribute__((aligned(16))) = {
+  1, 2, 3, 4, -1, -2, -3, -4, 127, -128, 0, 42, 8, 9, 10, 11
+};
+static const int8_t rhs[16] __attribute__((aligned(16))) = {
+  10, 20, 30, 40, 1, 2, 3, 4, 1, -1, 0, -42, 1, 2, 3, 4
+};
+static uint8_t result[16] __attribute__((aligned(16)));
+
+int main(void) {
+  kks_enable_vector();
+  __asm__ volatile(
+    "vsetivli zero, 16, e8, m1, tu, mu\n\t"
+    "vle8.v v8, (%0)\n\t"
+    "vle8.v v9, (%1)\n\t"
+    ".global kks_vadd_begin\nkks_vadd_begin:\n\t"
+    "vadd.vv v10, v8, v9\n\t"
+    ".global kks_vadd_end\nkks_vadd_end:\n\t"
+    "vse8.v v10, (%2)"
+    : : "r"(lhs), "r"(rhs), "r"(result)
+    : "v8", "v9", "v10", "memory");
+  for (int i = 0; i < 16; ++i) {
+    const uint8_t expected = (uint8_t)((uint8_t)lhs[i] + (uint8_t)rhs[i]);
+    if (result[i] != expected) {
+      printf("VADD FAIL lane=%d got=%d expected=%d\n", i, result[i], expected);
+      return 1;
+    }
+  }
+  printf("VADD PASS lanes=16, including int8 wraparound\n");
+  return 0;
+}
++ bash scripts/build_app.sh vadd
++ tee stages/01-environment/logs/20261106-163724/vadd-build.log
+make: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/vadd'
+# Building kks-vadd [riscv64-xs] with AM_HOME {/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am}
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
++ CC main.c
+# Building lib-klib [riscv64-xs]
+make[2]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
+# Building lib-am [riscv64-xs]
++ AS src/nemu/common/mainargs.S
++ AR -> build/am-riscv64-xs.a
+make[2]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+# Creating binary image [riscv64-xs]
++ LD -> build/kks-vadd-riscv64-xs.elf
+/opt/riscv/bin/riscv64-unknown-linux-gnu-ld: warning: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/vadd/build/kks-vadd-riscv64-xs.elf has a LOAD segment with RWX permissions
++ OBJCOPY -> build/kks-vadd-riscv64-xs.bin
+make: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/vadd'
++ riscv64-unknown-linux-gnu-nm -n build/apps/vadd.elf
+++ awk '$3 == "kks_vadd_begin" { print "0x" $1 }' stages/01-environment/evidence/20261106-163724/vadd-symbols.txt
++ pc=0x000000008000015e
++ [[ -n 0x000000008000015e ]]
++ rg -n -A 3 -B 3 kks_vadd_begin build/apps/vadd.disasm
++ tee stages/01-environment/evidence/20261106-163724/vadd-disassembly.txt
+99-    80000156:	02080407          	vle8.v	v8,(a6)
+100-    8000015a:	02088487          	vle8.v	v9,(a7)
+101-
+102:000000008000015e <kks_vadd_begin>:
+103-    8000015e:	02848557          	vadd.vv	v10,v8,v9
+104-
+105-0000000080000162 <kks_vadd_end>:
++ wave=/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/build/stage1-20261106-163724.vcd
++ bash scripts/run_emu.sh vadd baseline diff --dump-wave --wave-path /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/build/stage1-20261106-163724.vcd
+Running vadd (baseline/diff), full log: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/build/logs/vadd-baseline-diff.log
+KKS_RUN mode=diff variant=baseline
+The reference model is /home/hbyasts/2-corecode/riscv-xiangshan/xs-env/XiangShan/ready-to-run/riscv64-nemu-interpreter-so
+VADD PASS lanes=16, including int8 wraparound
+
+[PERF ][time=               13330] SimTop.l_soCore 0: HIT GOOD TRAP at pc = 0x800001c6
+Core-0 instrCnt = 1388, cycleCnt = 13327, IPC = 0.104149
+Host time spent: 30962ms
++ cp build/logs/vadd-baseline-diff.log stages/01-environment/logs/20261106-163724/vadd-full.log
++ python3 scripts/extract_vadd_wave.py /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/build/stage1-20261106-163724.vcd --pc 0x000000008000015e --output stages/01-environment/evidence/20261106-163724
+events 5 signals 83
+('decode', 8424, 8427, 0, '0x8000015e', '0x2848557', '', '', '')
+('rob_enqueue', 8428, 8431, 0, '0x8000015e', '0x2848557', '', '', '')
+('alu_input', 8463, 8466, 'exus_2', '', '', '0x4030201d600ff0104030201281e140a', '0xb0a09082a00807ffcfdfeff04030201', '')
+('alu_output', 8464, 8467, 'exus_2', '', '', '', '', '0xf0d0b0900007f80000000002c21160b')
+('commit', 8466, 8469, 0, '0x8000015e', '0x2848557', '', '', '')
++ gzip -n -c stages/01-environment/evidence/20261106-163724/vadd-selected.vcd
++ python3 scripts/collect_summary.py stages/01-environment/logs/20261106-163724/hello-full.log stages/01-environment/evidence/20261106-163724/hello-summary.txt
+stages/01-environment/evidence/20261106-163724/hello-summary.txt
++ python3 scripts/collect_summary.py stages/01-environment/logs/20261106-163724/vadd-full.log stages/01-environment/evidence/20261106-163724/vadd-summary.txt
+stages/01-environment/evidence/20261106-163724/vadd-summary.txt
++ python3 scripts/capture_env.py
++ python3 - stages/01-environment/logs/20261106-163724/host.json
++ TZ=Asia/Shanghai
++ date -Iseconds
+2026-11-06T16:38:26+08:00
++ printf 'STAGE1_COMMANDS_PASS run=%s pc=%s\n' 20261106-163724 0x000000008000015e
+STAGE1_COMMANDS_PASS run=20261106-163724 pc=0x000000008000015e
+
+Script done on 2026-11-06 16:38:26+08:00 [COMMAND_EXIT_CODE="0"]
