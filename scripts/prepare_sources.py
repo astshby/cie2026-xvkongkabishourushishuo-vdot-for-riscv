@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""在忽略的 work/ 建隔离工作树，复用只读子模块，保留用户原有修改。"""
+"""在 work/ 建隔离工作树；推荐提交只作提示，兼容性由补丁和构建检查。"""
 import json
 import os
 from pathlib import Path
@@ -14,38 +14,55 @@ def run(*args, **kw):
     return subprocess.run(args, check=True, text=True, **kw)
 
 
-# 共享的是已初始化的依赖源码，不仅检查目录存在，也核对其实际版本。
-# 不自动 checkout 共享目录，以免覆盖用户环境；不匹配时给出明确错误。
-am = XS_ENV / 'nexus-am'
-am_sha = subprocess.check_output(['git', '-C', str(am), 'rev-parse', 'HEAD'], text=True).strip()
-if am_sha != lock['repos']['nexus-am']['commit']:
-    raise SystemExit(f'{am}: nexus-am 版本与锁定记录不一致')
-for entry in lock['repos']['XiangShan']['submodules'].splitlines():
-    expected, rel = entry.strip().split()[:2]
-    src = XS_ENV / 'XiangShan' / rel
-    actual = subprocess.check_output(['git', '-C', str(src), 'rev-parse', 'HEAD'], text=True).strip()
+def head(repo):
+    if not (repo / '.git').exists():
+        raise SystemExit(f'依赖未初始化：{repo}；请按 README 获取源码及子模块')
+    return subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()
+
+
+def recommend(repo, expected):
+    actual = head(repo)
     if actual != expected:
-        raise SystemExit(f'{src}: 子模块版本不匹配，预期 {expected}，实际 {actual}')
+        print(f'NOTICE: {repo} 使用 {actual}，推荐 {expected}；继续检查补丁和构建兼容性')
+
+
+am = Path(os.environ.get('AM_HOME', XS_ENV / 'nexus-am')).resolve()
+recommend(am, lock['repos']['nexus-am']['commit'])
+recommended_modules = dict(entry.strip().split()[:2][::-1]
+                           for entry in lock['repos']['XiangShan']['submodules'].splitlines())
 
 for name in ('XiangShan', 'NEMU'):
     source = XS_ENV / name
     target = ROOT / 'work' / name
     if not (target / '.git').exists():
         target.parent.mkdir(parents=True, exist_ok=True)
-        run('git', '-C', str(source), 'worktree', 'add', '--detach', str(target), lock['repos'][name]['commit'])
-    head = subprocess.check_output(['git', '-C', str(target), 'rev-parse', 'HEAD'], text=True).strip()
-    if head != lock['repos'][name]['commit']:
-        raise SystemExit(f'{target}: 基础版本不匹配，拒绝覆盖')
+        # 使用调用者选择的基础源码 HEAD，避免隐式切换或覆盖其环境。
+        head(source)
+        run('git', '-C', str(source), 'worktree', 'add', '--detach', str(target), 'HEAD')
+    recommend(target, lock['repos'][name]['commit'])
     modules = target / '.gitmodules'
     if modules.exists():
         p = subprocess.run(['git', 'config', '-f', str(modules), '--get-regexp', r'^submodule\..*\.path$'], text=True, capture_output=True)
         for line in p.stdout.splitlines():
             rel = line.split(' ', 1)[1]
             dst, src = target / rel, source / rel
-            if not src.is_dir():
-                raise SystemExit(f'未初始化的依赖: {src}')
+            expected = recommended_modules.get(rel) if name == 'XiangShan' else None
             if dst.is_symlink():
+                if not dst.is_dir():
+                    raise SystemExit(f'依赖链接已失效：{dst}；请恢复 XS_ENV 或使用新的作品克隆目录')
+                if expected:
+                    recommend(dst, expected)
                 continue
+            if dst.is_dir() and any(dst.iterdir()):
+                # 允许调用者在隔离目录自行初始化或选择其他子模块版本。
+                if expected:
+                    recommend(dst, expected)
+                else:
+                    head(dst)
+                continue
+            head(src)
+            if expected:
+                recommend(src, expected)
             if dst.is_dir():
                 dst.rmdir()  # 只允许删除空的子模块占位目录。
             dst.parent.mkdir(parents=True, exist_ok=True)

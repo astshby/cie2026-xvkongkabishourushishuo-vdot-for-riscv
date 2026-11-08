@@ -1,0 +1,10 @@
+NEMU vectors PASS vectors=133 result128=checked vcsr=preserved
+NEMU vl15 PASS vectors=1 result128=checked vcsr=preserved
+NEMU sew16 PASS vectors=1 result128=checked vcsr=preserved
+NEMU lmul2 PASS vectors=1 result128=checked vcsr=preserved
+NEMU vstart1 PASS vectors=1 result128=checked vcsr=preserved
+NEMU masked PASS vectors=1 result128=checked vcsr=preserved
+NEMU vl0 PASS vectors=1 result128=checked vcsr=preserved
+NEMU vill PASS vectors=1 result128=checked vcsr=preserved
+NEMU vs_off PASS vectors=1 result128=checked vcsr=preserved
+NEMU SUITE PASS vector_cases=133 aliases=5 full128_checks=665 illegal_modes=8 vcsr_states=8

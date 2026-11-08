@@ -22,7 +22,7 @@ for name in ('XiangShan', 'NEMU', 'nexus-am'):
                    'dirty': run('git', '-C', str(path), 'status', '--short')}
 repos['XiangShan']['submodules'] = run('git', '-C', str(XS_ENV / 'XiangShan'), 'submodule', 'status')
 tools = {}
-for name in ('mill', 'java', 'verilator', 'riscv64-unknown-linux-gnu-gcc', 'gcc', 'make'):
+for name in ('mill', 'java', 'verilator', os.environ.get('CROSS_COMPILE', 'riscv64-unknown-linux-gnu-')+'gcc', 'gcc', 'make'):
     path = shutil.which(name)
     if name == 'mill':
         # launcher 在沙箱里可能无法启动 server；工程固定版本以版本文件为准。

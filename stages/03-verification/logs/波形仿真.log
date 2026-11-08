@@ -1,0 +1,18 @@
+KKS_RUN mode=diff variant=custom
+EMU_BUILD_CHECK PASS
+NEMU_BUILD_CHECK PASS
+2b9da3e04d17cd393b7bc8e4de0926d928fee7e722868bfd7322c8cbb997b1bf  /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/build/emu
+b5eadbae226c793a2c04d9230ee20488f8d972e0dd5a72e611875054d73a087c  /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/build/apps/smoke.bin
+08b0dbd13cc01ba9d04f21f3036f2bafa395fa6be30c9c3123be7e334af5b9dc  /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU/build/riscv64-nemu-interpreter-so
+emu compiled at Nov  6 2026, 21:54:00
+Using simulated 32768B flash
+Using simulated 128MB RAM
+The image is /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/build/apps/smoke.bin
+The reference model is /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU/build/riscv64-nemu-interpreter-so
+The first instruction of core 0 has commited. Difftest enabled. 
+WAVE PASS upper8_only signed_result=-32416 high96=zero baseline=99 dot=77
+Core 0: [32mHIT GOOD TRAP at pc = 0x80000300
+[0m[35mCore-0 instrCnt = 2664, cycleCnt = 15387, IPC = 0.173133
+[0m[34mSeed=0 Guest cycle spent: 15391 (this will be different from cycleCnt if emu loads a snapshot)
+[0m[34mHost time spent: 69444ms
+[0mKKS_RUN_EXIT code=0

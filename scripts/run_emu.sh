@@ -25,6 +25,9 @@ set +e
   printf 'KKS_RUN mode=%s variant=%s\n' "$mode" "$variant"
   if [[ "$variant" == custom ]]; then
     python3 "$KKS_ROOT/scripts/record_emu_build.py" --check || exit 2
+    if [[ "$mode" == diff ]]; then
+      python3 "$KKS_ROOT/scripts/record_emu_build.py" --nemu --check || exit 2
+    fi
   fi
   sha256sum "$emu" "$KKS_ROOT/build/apps/$app.bin"
   if [[ "$mode" == diff ]]; then sha256sum "$ref"; fi

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 source "$(dirname "$0")/env.sh"
-app=${1:?Usage: scripts/build_app.sh hello|vadd|vdot|bench}
+app=${1:?Usage: scripts/build_app.sh hello|vadd|vdot|illegal|bench|smoke}
 [[ "$app" =~ ^[a-z0-9_-]+$ ]] || exit 2
 mkdir -p "$KKS_ROOT/build/include"
 if [[ "$app" == hello ]]; then
@@ -21,7 +21,8 @@ open(sys.argv[1], 'w').write('#define KKS_IP_ADDRESS "' + ip + '"\n')
 print('Hello IP:', ip)
 PY
 fi
-make -C "$KKS_ROOT/tests/$app" ARCH=riscv64-xs MARCH=rv64gcv_zba_zbb_zbc_zbs -j"$KKS_JOBS"
+make -C "$KKS_ROOT/tests/$app" ARCH=riscv64-xs MARCH=rv64gcv_zba_zbb_zbc_zbs \
+  CROSS_COMPILE="$CROSS_COMPILE" -j"$KKS_JOBS"
 mkdir -p "$KKS_ROOT/build/apps"
 cp "$KKS_ROOT/tests/$app/build/kks-$app-riscv64-xs.bin" "$KKS_ROOT/build/apps/$app.bin"
 cp "$KKS_ROOT/tests/$app/build/kks-$app-riscv64-xs.elf" "$KKS_ROOT/build/apps/$app.elf"

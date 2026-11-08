@@ -1,0 +1,91 @@
+diff --git a/src/cpu/difftest/ref.c b/src/cpu/difftest/ref.c
+index e58f0797..85751a40 100644
+--- a/src/cpu/difftest/ref.c
++++ b/src/cpu/difftest/ref.c
+@@ -22,6 +22,7 @@
+ #include <memory/store_queue_wrapper.h>
+ #include <cpu/cpu.h>
+ #include <difftest.h>
++#include <device/flash.h>
+ 
+ unsigned ref_hartid = 0;
+ 
+@@ -91,6 +92,17 @@ void difftest_load_flash(void *flash_bin, size_t f_size){
+ #endif
+ }
+ 
++// Difftest's v2 ABI supplies the DUT's exact flash bytes. The historical
++// filename ABI falls back to NEMU's newer preset boot code when given NULL,
++// which differs from this pinned Kunminghu V2 DUT before the workload starts.
++void difftest_load_flash_v2(const uint8_t *flash_bin, size_t f_size) {
++#ifdef CONFIG_HAS_FLASH
++  load_flash_contents(NULL);
++  assert(flash_bin != NULL && f_size <= get_flash_size());
++  memcpy(get_flash_base(), flash_bin, f_size);
++#endif
++}
++
+ void difftest_set_ramsize(size_t ram_size){
+   // should be called before difftest_init()
+ #ifdef CONFIG_USE_MMAP
+diff --git a/src/isa/riscv64/system/intr.c b/src/isa/riscv64/system/intr.c
+index e662cb1c..360c8c68 100644
+--- a/src/isa/riscv64/system/intr.c
++++ b/src/isa/riscv64/system/intr.c
+@@ -22,6 +22,29 @@
+ 
+ void update_mmu_state();
+ 
++// The pinned Kunminghu V2 reports instruction bits for decode-time faults,
++// but zero for a configuration fault raised by the custom VIPU operation.
++// Model that architectural choice from the instruction/CSRs independently;
++// never copy tval or vector results from the DUT and never skip comparison.
++static word_t kks_illegal_instruction_tval(void) {
++#ifdef CONFIG_RVV
++  const uint32_t insn = cpu.instr;
++  if ((insn & 0xfc00707fU) == 0x0c000057U) {
++    const unsigned vd = (insn >> 7) & 31;
++    const unsigned vs1 = (insn >> 15) & 31;
++    const unsigned vs2 = (insn >> 20) & 31;
++    const unsigned align_mask = vtype->vlmul < 4 ? (1U << vtype->vlmul) - 1 : 0;
++    bool decode_fault = mstatus->vs == 0 || vtype->vill || vstart->val != 0 ||
++      ((vd | vs1 | vs2) & align_mask) != 0 || (!(insn & (1U << 25)) && vd == 0);
++#ifdef CONFIG_RVH
++    decode_fault |= cpu.v && vsstatus->vs == 0;
++#endif
++    return decode_fault ? insn : 0;
++  }
++#endif
++  return MUXDEF(CONFIG_TVAL_EX_II, cpu.instr, 0);
++}
++
+ 
+ #ifdef CONFIG_RVH
+ word_t gen_gva(word_t NO, bool is_hls, bool is_mem_access_virtual) {
+@@ -191,7 +214,7 @@ word_t raise_intr(word_t NO, vaddr_t epc) {
+ #endif // CONFIG_RV_SDTRIG
+         break;
+       case EX_II:
+-        vstval->val = MUXDEF(CONFIG_TVAL_EX_II, cpu.instr, 0);
++        vstval->val = kks_illegal_instruction_tval();
+         break;
+       default: vstval->val = 0;
+     }
+@@ -230,7 +253,7 @@ word_t raise_intr(word_t NO, vaddr_t epc) {
+       case EX_IGPF: case EX_LGPF: case EX_SGPF:
+         break;
+       case EX_II: case EX_VI:
+-        stval->val = MUXDEF(CONFIG_TVAL_EX_II, cpu.instr, 0);
++        stval->val = kks_illegal_instruction_tval();
+         IFDEF(CONFIG_RVH, htval->val = 0);
+         IFDEF(CONFIG_RVH, htinst->val = 0);
+         break;
+@@ -286,7 +309,7 @@ word_t raise_intr(word_t NO, vaddr_t epc) {
+       case EX_IGPF: case EX_LGPF: case EX_SGPF:
+         break;
+       case EX_II: case EX_VI:
+-        mtval->val = MUXDEF(CONFIG_TVAL_EX_II, cpu.instr, 0);
++        mtval->val = kks_illegal_instruction_tval();
+         IFDEF(CONFIG_RVH, mtval2->val = 0);
+         IFDEF(CONFIG_RVH, mtinst->val = 0);
+         break;

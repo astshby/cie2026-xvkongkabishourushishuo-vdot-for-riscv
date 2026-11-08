@@ -19,7 +19,10 @@ logs, evidence = stage / 'logs' / a.run_id, stage / 'evidence' / a.run_id
 
 def sha(path):
     with path.open('rb') as f:
-        return hashlib.file_digest(f, 'sha256').hexdigest()
+        digest = hashlib.sha256()
+        for chunk in iter(lambda: f.read(1024 * 1024), b''):
+            digest.update(chunk)
+        return digest.hexdigest()
 
 for app, marker in [('hello', 'hello xiangshan, I am xvkongkabishourushishuo, IP address:'),
                     ('vadd', 'VADD PASS lanes=16')]:

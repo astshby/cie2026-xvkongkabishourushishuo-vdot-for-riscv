@@ -1,0 +1,57 @@
+diff --git a/src/isa/riscv64/include/isa-all-instr.h b/src/isa/riscv64/include/isa-all-instr.h
+index 2f18ca17..b3becde5 100644
+--- a/src/isa/riscv64/include/isa-all-instr.h
++++ b/src/isa/riscv64/include/isa-all-instr.h
+@@ -155,6 +155,7 @@
+ 
+ #ifdef CONFIG_RVV
+ #define VECTOR_INSTR_TERNARY(f) \
++  f(vdot) \
+   f(vadd) f(vsub) f(vrsub) f(vminu) f(vmin) \
+   f(vmaxu) f(vmax) f(vand) f(vor) f(vxor) \
+   f(vrgather) f(vrgatherei16) \
+diff --git a/src/isa/riscv64/instr/rvv/decode.h b/src/isa/riscv64/instr/rvv/decode.h
+index ee7618e0..cf1de28c 100644
+--- a/src/isa/riscv64/instr/rvv/decode.h
++++ b/src/isa/riscv64/instr/rvv/decode.h
+@@ -164,6 +164,8 @@ def_THelper(vopivv) {
+   if (!vp_enable()) {
+     return EXEC_ID_inv;
+   }
++  // KKS experimental OPIVV dot16; vm=0 is decoded and rejected by execution.
++  def_INSTR_TAB("000011 ? ????? ????? ??? ????? ????? ??", vdot);
+   def_INSTR_TAB("000000 ? ????? ????? ??? ????? ????? ??", vadd);
+   def_INSTR_TAB("000010 ? ????? ????? ??? ????? ????? ??", vsub);
+   def_INSTR_TAB("000100 ? ????? ????? ??? ????? ????? ??", vminu);
+diff --git a/src/isa/riscv64/instr/rvv/vcompute.h b/src/isa/riscv64/instr/rvv/vcompute.h
+index 2bcb6aae..df645052 100644
+--- a/src/isa/riscv64/instr/rvv/vcompute.h
++++ b/src/isa/riscv64/instr/rvv/vcompute.h
+@@ -19,6 +19,27 @@
+ #include "vcompute_impl.h"
+ #include "vcommon.h"
+ 
++// KKS dot16 is deliberately independent from RTL's balanced adder tree.
++// C uses a scalar loop as the golden reference for sixteen signed byte pairs.
++def_EHelper(vdot) {
++  require_vector(true);
++  if (vtype->vsew != 0 || vtype->vlmul != 0 || vl->val != 16 ||
++      vstart->val != 0 || s->vm != 1) {
++    longjmp_exception(EX_II);
++  }
++  int32_t sum = 0;
++  for (int i = 0; i < 16; ++i) {
++    const int32_t a = (int8_t)vreg_b(id_src1->reg, i);
++    const int32_t b = (int8_t)vreg_b(id_src2->reg, i);
++    sum += a * b;
++  }
++  // Read every source before writing: vd may alias either source register.
++  vreg_l(id_dest->reg, 0) = (uint32_t)sum;
++  vreg_l(id_dest->reg, 1) = 0;
++  vstart->val = 0;
++  vp_set_dirty();
++}
++
+ def_EHelper(vadd) {
+   ARITH(ADD, SIGNED)
+ }

@@ -1,0 +1,38 @@
+make: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/bench'
+# Building kks-bench [riscv64-xs] with AM_HOME {/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am}
++ CC main.c
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
++ AS kernels.S
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
+# Building lib-klib [riscv64-xs]
+make[2]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
+# Building lib-am [riscv64-xs]
++ AS src/nemu/common/mainargs.S
++ AR -> build/am-riscv64-xs.a
+make[2]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+# Creating binary image [riscv64-xs]
++ LD -> build/kks-bench-riscv64-xs.elf
+/opt/riscv/bin/riscv64-unknown-linux-gnu-ld: warning: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/bench/build/kks-bench-riscv64-xs.elf has a LOAD segment with RWX permissions
++ OBJCOPY -> build/kks-bench-riscv64-xs.bin
+make: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/bench'
+make: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/smoke'
+# Building kks-smoke [riscv64-xs] with AM_HOME {/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am}
++ CC main.c
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
++ AS ../bench/kernels.S
+# Building lib-klib [riscv64-xs]
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
+make[2]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+# Building lib-am [riscv64-xs]
++ AS src/nemu/common/mainargs.S
++ AR -> build/am-riscv64-xs.a
+make[2]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+# Creating binary image [riscv64-xs]
++ LD -> build/kks-smoke-riscv64-xs.elf
+/opt/riscv/bin/riscv64-unknown-linux-gnu-ld: warning: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/smoke/build/kks-smoke-riscv64-xs.elf has a LOAD segment with RWX permissions
++ OBJCOPY -> build/kks-smoke-riscv64-xs.bin
+make: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/smoke'

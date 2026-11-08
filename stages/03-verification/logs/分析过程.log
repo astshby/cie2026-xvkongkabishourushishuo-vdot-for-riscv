@@ -1,0 +1,90 @@
+WAVE_PARSE PASS selected_signals=152
+{"event": "decode", "vcd_time": 4487, "cycle": 4490, "target": "kks_baseline_mul", "pc": "0x800001b2", "slot": 3, "instruction": "0xee84a857"}
+{"event": "decode", "vcd_time": 4591, "cycle": 4594, "target": "kks_baseline_mul", "pc": "0x800001b2", "slot": 2, "instruction": "0xee84a857"}
+{"event": "decode", "vcd_time": 4602, "cycle": 4605, "target": "kks_baseline_reduce", "pc": "0x800001ba", "slot": 0, "instruction": "0xc70a0c57"}
+{"event": "decode", "vcd_time": 4625, "cycle": 4628, "target": "kks_baseline_mul", "pc": "0x800001b2", "slot": 0, "instruction": "0xee84a857"}
+{"event": "decode", "vcd_time": 4627, "cycle": 4630, "target": "kks_baseline_reduce", "pc": "0x800001ba", "slot": 0, "instruction": "0xc70a0c57"}
+{"event": "decode", "vcd_time": 4629, "cycle": 4632, "target": "kks_baseline_move", "pc": "0x800001c2", "slot": 0, "instruction": "0x5e0c0457"}
+{"event": "rob_enqueue", "vcd_time": 4629, "cycle": 4632, "target": "kks_baseline_mul", "pc": "0x800001b2", "slot": 0, "rob": [0, 71]}
+{"event": "rob_enqueue", "vcd_time": 4629, "cycle": 4632, "target": "kks_baseline_mul", "pc": "0x800001b2", "slot": 1, "rob": [0, 71]}
+{"event": "rob_enqueue", "vcd_time": 4631, "cycle": 4634, "target": "kks_baseline_reduce", "pc": "0x800001ba", "slot": 0, "rob": [0, 73]}
+{"event": "rob_enqueue", "vcd_time": 4631, "cycle": 4634, "target": "kks_baseline_reduce", "pc": "0x800001ba", "slot": 1, "rob": [0, 73]}
+{"event": "rob_enqueue", "vcd_time": 4632, "cycle": 4635, "target": "kks_baseline_reduce", "pc": "0x800001ba", "slot": 2, "rob": [0, 73]}
+{"event": "rob_enqueue", "vcd_time": 4632, "cycle": 4635, "target": "kks_baseline_reduce", "pc": "0x800001ba", "slot": 3, "rob": [0, 73]}
+{"event": "fu_input", "vcd_time": 4633, "cycle": 4636, "target": "kks_baseline_mul", "pc": "0x800001b2", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus.Vimac", "rob": [0, 71], "fuop": 104, "uop": 0, "vs1": "0xf906fb04fd02807f0000000000000000", "vs2": "0xfa05fc0302ff7f800000000000000000"}
+{"event": "rob_enqueue", "vcd_time": 4634, "cycle": 4637, "target": "kks_baseline_move", "pc": "0x800001c2", "slot": 0, "rob": [0, 75]}
+{"event": "fu_input", "vcd_time": 4634, "cycle": 4637, "target": "kks_baseline_mul", "pc": "0x800001b2", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus.Vimac", "rob": [0, 71], "fuop": 104, "uop": 1, "vs1": "0xf906fb04fd02807f0000000000000000", "vs2": "0xfa05fc0302ff7f800000000000000000"}
+{"event": "fu_output", "vcd_time": 4635, "cycle": 4638, "target": "kks_baseline_mul", "pc": "0x800001b2", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus.Vimac", "rob": [0, 71], "result": "0x0"}
+{"event": "fu_output", "vcd_time": 4636, "cycle": 4639, "target": "kks_baseline_mul", "pc": "0x800001b2", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus.Vimac", "rob": [0, 71], "result": "0x2a001e0014000cfffafffec080c080"}
+{"event": "commit", "vcd_time": 4638, "cycle": 4641, "target": "kks_baseline_mul", "pc": "0x800001b2", "slot": 0}
+{"event": "fu_input", "vcd_time": 4640, "cycle": 4643, "target": "kks_baseline_reduce", "pc": "0x800001ba", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus_1.Vipu", "rob": [0, 73], "fuop": 66, "uop": 0, "vs1": "0x0", "vs2": "0x0"}
+{"event": "fu_input", "vcd_time": 4641, "cycle": 4644, "target": "kks_baseline_reduce", "pc": "0x800001ba", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus_1.Vipu", "rob": [0, 73], "fuop": 66, "uop": 1, "vs1": "0x2a001e0014000cfffafffec080c080", "vs2": "0x2a001e0014000cfffafffec080c080"}
+{"event": "fu_output", "vcd_time": 4642, "cycle": 4645, "target": "kks_baseline_reduce", "pc": "0x800001ba", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus_1.Vipu", "rob": [0, 73], "result": "0x0"}
+{"event": "fu_output", "vcd_time": 4643, "cycle": 4646, "target": "kks_baseline_reduce", "pc": "0x800001ba", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus_1.Vipu", "rob": [0, 73], "result": "0x240000001cffffc094ffffc08c"}
+{"event": "fu_input", "vcd_time": 4648, "cycle": 4651, "target": "kks_baseline_reduce", "pc": "0x800001ba", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus_1.Vipu", "rob": [0, 73], "fuop": 66, "uop": 2, "vs1": "0x240000001cffffc094ffffc08c", "vs2": "0x0"}
+{"event": "fu_output", "vcd_time": 4650, "cycle": 4653, "target": "kks_baseline_reduce", "pc": "0x800001ba", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus_1.Vipu", "rob": [0, 73], "result": "0x240000001cffffc094ffffc08c"}
+{"event": "fu_input", "vcd_time": 4655, "cycle": 4658, "target": "kks_baseline_reduce", "pc": "0x800001ba", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus_1.Vipu", "rob": [0, 73], "fuop": 66, "uop": 3, "vs1": "0x0", "vs2": "0x240000001cffffc094ffffc08c"}
+{"event": "fu_output", "vcd_time": 4657, "cycle": 4660, "target": "kks_baseline_reduce", "pc": "0x800001ba", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus_1.Vipu", "rob": [0, 73], "result": "0xffff8160"}
+{"event": "commit", "vcd_time": 4659, "cycle": 4662, "target": "kks_baseline_reduce", "pc": "0x800001ba", "slot": 0}
+{"event": "fu_input", "vcd_time": 4662, "cycle": 4665, "target": "kks_baseline_move", "pc": "0x800001c2", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus_2.VialuFix", "rob": [0, 75], "fuop": 26, "uop": 0, "vs1": "0xffff8160", "vs2": "0x0"}
+{"event": "fu_output", "vcd_time": 4663, "cycle": 4666, "target": "kks_baseline_move", "pc": "0x800001c2", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus_2.VialuFix", "rob": [0, 75], "result": "0xffff8160"}
+{"event": "commit", "vcd_time": 4665, "cycle": 4668, "target": "kks_baseline_move", "pc": "0x800001c2", "slot": 0}
+{"event": "decode", "vcd_time": 4927, "cycle": 4930, "target": "kks_dot_exec", "pc": "0x80000152", "slot": 1, "instruction": "0xe848557"}
+{"event": "decode", "vcd_time": 4975, "cycle": 4978, "target": "kks_dot_exec", "pc": "0x80000152", "slot": 2, "instruction": "0xe848557"}
+{"event": "decode", "vcd_time": 5009, "cycle": 5012, "target": "kks_dot_exec", "pc": "0x80000152", "slot": 0, "instruction": "0xe848557"}
+{"event": "rob_enqueue", "vcd_time": 5013, "cycle": 5016, "target": "kks_dot_exec", "pc": "0x80000152", "slot": 0, "rob": [0, 105]}
+{"event": "fu_input", "vcd_time": 5017, "cycle": 5020, "target": "kks_dot_exec", "pc": "0x80000152", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus_1.Vipu", "rob": [0, 105], "fuop": 254, "uop": 0, "vs1": "0xf906fb04fd02807f0000000000000000", "vs2": "0xfa05fc0302ff7f800000000000000000"}
+{"event": "fu_output", "vcd_time": 5019, "cycle": 5022, "target": "kks_dot_exec", "pc": "0x80000152", "unit": "TOP.SimTop.l_soc.core_with_l2.core.backend.inner_vfExuBlock.exus_1.Vipu", "rob": [0, 105], "result": "0xffff8160"}
+{"event": "commit", "vcd_time": 5021, "cycle": 5024, "target": "kks_dot_exec", "pc": "0x80000152", "slot": 0}
+WAVE_LATENCY dot=2 baseline_math_span=24 result128=0x000000000000000000000000ffff8160
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+[3000] start time.
+[9000] end time.
+GTKWAVE | Executing Tcl script 'stages/03-verification/waves/查看波形.tcl'
+GTKWAVE | couldn't read file "stages/03-verification/waves/查看波形.tcl": no such file or directory
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+[3000] start time.
+[9000] end time.
+GTKWAVE | Executing Tcl script '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/stages/03-verification/waves/查看波形.tcl'
+GTKWAVE | couldn't read file "/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/stages/03-verification/waves/查看波形.tcl": no such file or directory
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+[3000] start time.
+[9000] end time.
+GTKWAVE | Executing Tcl script '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/stages/03-verification/waves/view.tcl'
+GTKWave stage3 selected 17 signals
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+[3000] start time.
+[9000] end time.
+GTKWAVE | Executing Tcl script '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/stages/03-verification/waves/view.tcl'
+GTKWave stage3 selected 17 signals
+PERF_ANALYSIS PASS samples=15 equivalent_cases=5
+{"count": 1, "baseline": 99, "dot": 77, "baseline_total": 279, "dot_total": 256, "speedup": 1.2857142857142858, "total_speedup": 1.08984375, "baseline_range": [99, 100], "dot_range": [77, 78]}
+{"count": 8, "baseline": 344, "dot": 168, "baseline_total": 524, "dot_total": 347, "speedup": 2.0476190476190474, "total_speedup": 1.5100864553314122, "baseline_range": [344, 345], "dot_range": [168, 180]}
+{"count": 32, "baseline": 1184, "dot": 480, "baseline_total": 1363, "dot_total": 659, "speedup": 2.466666666666667, "total_speedup": 2.0682852807283765, "baseline_range": [1184, 1185], "dot_range": [480, 481]}
+FIGURES PASS actual_vcd_events=checked actual_perf_samples=15 black_and_white=enabled
+78af4e4395cc841676aa4c86b53f26736085f069417b57c5bbc4ec55e8e426ae  build/stage3-full.vcd
+7ca7092512d0c5036d253fbe4776c9207563968ee6cb8a71e8498cc411551b0e  stages/03-verification/waves/执行波形.vcd.gz
+52f6df80632d35e5fbeeab659cc9d582e71f32c94efc72507271d1f9922eb054  stages/03-verification/waves/波形数据.json
+fc4eca3aea99c920b25b7c999cae5cf5e0830ddda92ee9a2867e9fae5eb69ba0  stages/03-verification/logs/性能数据.json
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+[3000] start time.
+[9000] end time.
+GTKWAVE | Executing Tcl script '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/stages/03-verification/waves/view.tcl'
+GTKWave stage3 selected 17 signals
+
+GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+
+[3000] start time.
+[9000] end time.
+GTKWAVE | Executing Tcl script '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/stages/03-verification/waves/view.tcl'
+GTKWave stage3 selected 17 signals

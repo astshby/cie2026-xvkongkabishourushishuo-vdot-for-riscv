@@ -1,0 +1,141 @@
+Prepared: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan
+Prepared: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU
+Already applied NEMU
+Already applied NEMU-compat
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+From https://github.com/ucb-bar/berkeley-softfloat-3
+ * branch            497c81c1f5016dc6ef5b3219ece2f3c261d4d8f1 -> FETCH_HEAD
+HEAD is now at 497c81c Fix build on Apple Clang 21 with -Wuninitialized-const-pointer (#48)
+From https://github.com/nanopb/nanopb
+ * branch            7508b975b0fa9afbac026e3422dcdf5365ef5bc5 -> FETCH_HEAD
+HEAD is now at 7508b97 Document submsg_callback generator option in API reference
+NEMU dependency commits match lock file
+make: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU'
+Makefile:40: You have set CONFIG_FLASH_IMG_PATH option, but the specified path '""' does not exist!
+make: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU'
+make: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU'
+Makefile:40: You have set CONFIG_FLASH_IMG_PATH option, but the specified path '""' does not exist!
++ CC src/nemu-main.c
++ CC src/device/device.c
++ CC src/device/alarm.c
++ CC src/device/intr.c
++ CC src/device/flash.c
++ CC src/cpu/instr_stat.c
++ CC src/cpu/difftest/ame/msync.c
++ CC src/cpu/difftest/ame/amuctrl.c
++ CC src/cpu/difftest/dut.c
++ CC src/cpu/difftest/ref.c
++ CC src/cpu/cpu-exec.c
++ CC src/cpu/tcache.c
++ CC src/monitor/image_loader.c
++ CC src/monitor/fdt_rng_seed.c
++ CC src/monitor/ui.c
++ CC src/monitor/monitor.c
++ CC src/monitor/aligncheck.c
++ CC src/monitor/watchpoint.c
++ CC src/utils/timer.c
++ CC src/utils/filename.c
++ CC src/utils/state.c
++ CC src/utils/dynamic-config.c
++ CC src/utils/br_log.c
++ CC src/utils/iqueue.c
++ CC src/utils/expr.c
++ CC src/utils/log.c
++ CC src/memory/vaddr.c
++ CC src/memory/paddr.c
++ CC src/memory/host-tlb.c
++ CC src/isa/riscv64/reg.c
++ CC src/isa/riscv64/init.c
++ CC src/isa/riscv64/clint.c
++ CC src/isa/riscv64/difftest/dut.c
++ CC src/isa/riscv64/difftest/ref.c
++ CC src/isa/riscv64/instr/rvb/rvintrin.c
++ CC src/isa/riscv64/instr/fp.c
++ CC src/isa/riscv64/instr/rva/amo.c
++ CC src/isa/riscv64/instr/rvcbo/cbo_impl.c
++ CC src/isa/riscv64/instr/decode.c
++ CC src/isa/riscv64/instr/rvt/type.c
++ CC src/isa/riscv64/instr/rvt/conv2d.c
++ CC src/isa/riscv64/instr/rvt/tensor_init.c
++ CC src/isa/riscv64/instr/rvt/register.c
++ CC src/isa/riscv64/instr/rvt/pooling.c
++ CC src/isa/riscv64/instr/rvt/sfu.c
++ CC src/isa/riscv64/instr/rvt/element_wise.c
++ CC src/isa/riscv64/instr/rvt/matmul_subfloat.c
++ CC src/isa/riscv64/instr/rvt/matmul.c
++ CC src/isa/riscv64/instr/rvt/convert.c
++ CC src/isa/riscv64/instr/rvt/tensor_copy.c
++ CC src/isa/riscv64/instr/mp.c
++ CC src/isa/riscv64/instr/rvv/vfexp2.c
++ CC src/isa/riscv64/instr/rvv/vldst_impl.c
++ CC src/isa/riscv64/instr/rvv/vcompute_impl.c
++ CC src/isa/riscv64/instr/rvv/vcommon.c
++ CC src/isa/riscv64/instr/rvv/vreg_impl.c
++ CC src/isa/riscv64/instr/ame/mcompute_impl.c
++ CC src/isa/riscv64/instr/ame/mldst_fast.c
++ CC src/isa/riscv64/instr/ame/mldst_transpose_fast.c
++ CC src/isa/riscv64/instr/ame/mldst_impl.c
++ CC src/isa/riscv64/instr/ame/mreg.c
++ CC src/isa/riscv64/instr/vp.c
++ CC src/isa/riscv64/instr/rvk/crypto_impl.c
++ CC src/isa/riscv64/instr/rvk/aes_common.c
++ CC src/isa/riscv64/instr/priv/system.c
++ CC src/isa/riscv64/ame/raw_fp4_memory.c
++ CC src/isa/riscv64/system/timer.c
++ CC src/isa/riscv64/system/intr.c
++ CC src/isa/riscv64/system/trigger.c
++ CC src/isa/riscv64/system/mmu.c
++ CC src/isa/riscv64/system/aia.c
++ CC src/isa/riscv64/system/priv.c
++ CC src/isa/riscv64/logo.c
++ CC src/engine/interpreter/hostcall.c
++ CC src/engine/interpreter/init.c
++ CC src/engine/interpreter/fp.c
++ CC src/device/io/map.c
++ CC src/device/io/mmio.c
++ CC src/device/io/port-io.c
++ CC src/profiling/profiling_control.c
++ CC src/checkpoint/cpt_env.c
++ CXX src/checkpoint/serializer.cpp
++ CXX src/checkpoint/semantic_point.cpp
++ CXX src/checkpoint/simpoint.cpp
++ CXX src/checkpoint/path_manager.cpp
++ CXX src/base/output.cpp
++ CXX src/iostream3/zfstream.cpp
++ CXX src/cpu/difftest/ame/msync_queue_wrapper.cpp
++ CXX src/cpu/difftest/ame/amu_ctrl_queue_wrapper.cpp
++ CXX src/memory/store_queue_wrapper.cpp
++ CXX src/memory/elfloader.cpp
+SPECIALIZE_TYPE=RISCV SOFTFLOAT_OPTS="-DSOFTFLOAT_ROUND_ODD -DINLINE_LEVEL=5 -DSOFTFLOAT_FAST_DIV32TO16 -DSOFTFLOAT_FAST_DIV64TO32 -fPIC" make -s -C /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU/resource/softfloat/repo/build/Linux-x86_64-GCC all
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU/resource/softfloat/repo/build/Linux-x86_64-GCC'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU/resource/softfloat/repo/build/Linux-x86_64-GCC'
+mkdir -p resource/softfloat/build
+ln -sf /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU/resource/softfloat/repo/build/Linux-x86_64-GCC/softfloat.a resource/softfloat/build/softfloat.a
++ ccache g++ /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU/build/riscv64-nemu-interpreter-so
+make: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU'
+Build manifest: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/build/nemu-build-manifest.json
+{
+  "reference": "NEMU",
+  "sha256": {
+    "patches/nemu.patch": "79755507eaee93cda4b79b481411c83606d47e97ec48950bee287cada25b7e24",
+    "patches/nemu-compat.patch": "ea4004f39571255c6c97a5cad5fe1885d6df59ba23ad2c43444d64ea4866b61b",
+    "env/nemu-ref.config": "db745dff04ef02a4c5bb2258a491c6eef8fdd1767872bda624c5ae859722267e",
+    "env/nemu-dependencies.json": "b8f8c4ff895c90a25e701a94b81d6eab4ea68592e8663ef568423bf2bcd9b2d7",
+    "work/NEMU/.config": "db745dff04ef02a4c5bb2258a491c6eef8fdd1767872bda624c5ae859722267e",
+    "work/NEMU/src/isa/riscv64/include/isa-all-instr.h": "e63c8bfed52d3d743640e38781662cdccf0a6bf78bdb3209fc61bd1e2661f967",
+    "work/NEMU/src/isa/riscv64/instr/rvv/decode.h": "d51118cc4e9ae3e69f075a45f4e19cb7ebc716d6a84b650744fedcfd503eef40",
+    "work/NEMU/src/isa/riscv64/instr/rvv/vcompute.h": "6e1b1e3fae26db02deb954df17e6a67bd74acc036cab8c9c09194d3884207720",
+    "work/NEMU/src/cpu/difftest/ref.c": "739b1d69c84fcb93382c4f3b0ca2cb1f2e3f23fcf6bd41e3a6279872a88dcfb0",
+    "work/NEMU/src/isa/riscv64/system/intr.c": "d4a46d3e5161d2b29a270f56e9a21e29ba41df2d3e667e68fe917be123e662f8",
+    "work/NEMU/build/riscv64-nemu-interpreter-so": "08b0dbd13cc01ba9d04f21f3036f2bafa395fa6be30c9c3123be7e334af5b9dc"
+  }
+}
