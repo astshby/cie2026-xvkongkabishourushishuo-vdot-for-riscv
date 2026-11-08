@@ -1,0 +1,195 @@
+Prepared: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan
+Prepared: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/NEMU
+Preparing Java 21.0.12 runtime; this may take a minute or two ...
+========================== xiangshan.test.testOnly xiangshan.VDot16Spec ==========================
+==================================================================================================
+[60/66] ==================== xiangshan.test.testOnly xiangshan.VDot16Spec ==================== 60s
+[build.sc-15] mill.scalalib.ZincWorkerModule.classpath 59s
+==================================================================================================
+[build.sc-62/66] compile
+[build.sc-62] [info] compiling 7 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/mill-build/compile.dest/classes ...
+[build.sc-62] [warn] /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/build.sc:273:88: constructor Locale in class Locale is deprecated (since 19)
+[build.sc-62] [warn]                                  DateTimeFormatter.ofPattern("MMM-dd-yyyy").withLocale(new Locale("en")))
+[build.sc-62] [warn]                                                                                        ^
+[build.sc-62] [warn] /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/build.sc:280:97: constructor Locale in class Locale is deprecated (since 19)
+[build.sc-62] [warn]       LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMM dd hh:mm:ss yyyy").withLocale(new Locale("en")))),
+[build.sc-62] [warn]                                                                                                 ^
+[build.sc-62] [warn] two warnings found
+[build.sc-62] [info] done compiling
+[689/773] rocketchip.macros.compile
+[689] [info] compiling 1 Scala source to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/rocketchip/macros/compile.dest/classes ...
+[689] [info] done compiling
+[690/773] rocketchip.cde.compile
+[690] [info] compiling 1 Scala source to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/rocketchip/cde/compile.dest/classes ...
+[690] [info] done compiling
+[695/773] macros.compile
+[695] [info] compiling 1 Scala source to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/macros/compile.dest/classes ...
+[695] [info] done compiling
+[697/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 120s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 40s
+[653] rocketchip.hardfloat.resolvedIvyDeps 34s Downloading [43/43] arti...s (~418677/445191 bytes)
+[654] difftest.resolvedIvyDeps 34s Downloading [15/15] artifacts (~84800/148514 bytes)
+[657] yunsuan.resolvedIvyDeps 34s Downloading [3/3] artifacts (~77422/90953 bytes)
+[659] fudian.resolvedIvyDeps 34s Downloading [18/18] artifacts (~86557/138389 bytes)
+[662] difftest.test.resolvedIvyDeps 34s Downloading [32/32] artifacts (~142892/287782 bytes)
+... and 9 more threads
+==================================================================================================
+[697/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 180s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 100s
+[653] rocketchip.hardfloat.resolvedIvyDeps 94s Downloading [55/55] arti...s (~504587/527535 bytes)
+[654] difftest.resolvedIvyDeps 94s Downloading [31/31] artifacts (~125262/232189 bytes)
+[657] yunsuan.resolvedIvyDeps 94s Downloading [47/47] artifacts (~17171801/24901035 bytes)
+[659] fudian.resolvedIvyDeps 94s Downloading [38/38] artifacts (~122198/219589 bytes)
+[662] difftest.test.resolvedIvyDeps 94s Downloading [49/49] artifacts (~202438/355436 bytes)
+... and 9 more threads
+==================================================================================================
+[697/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 240s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 160s
+[653] rocketchip.hardfloat.resolvedIvyDeps 154s Downloading [55/55] art...s (~504587/527535 bytes)
+[654] difftest.resolvedIvyDeps 154s Downloading [31/31] artifacts (~125262/232189 bytes)
+[657] yunsuan.resolvedIvyDeps 154s Downloading [56/56] artifacts (~24134901/26641288 bytes)
+[659] fudian.resolvedIvyDeps 154s Downloading [38/38] artifacts (~122198/219589 bytes)
+[662] difftest.test.resolvedIvyDeps 154s Downloading [49/49] artifacts (~202438/355436 bytes)
+... and 9 more threads
+==================================================================================================
+[701/773] yunsuan.compile
+[701] [info] compiling 79 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/yunsuan/compile.dest/classes ...
+[700/773] rocketchip.hardfloat.compile
+[704/773] fudian.compile
+[700] [info] compiling 20 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/rocketchip/hardfloat/compile.dest/classes ...
+[704] [info] compiling 15 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/fudian/compile.dest/classes ...
+[705/773] difftest.compile
+[705] [info] compiling 23 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/difftest/compile.dest/classes ...
+[705/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 300s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 220s
+[669] openNCB.resolvedIvyDeps 214s Downloading [4/4] artifacts (~7690346/8034045 bytes)
+[683] xiangshan.resolvedIvyDeps 214s Downloading [88/88] artifacts (~41099949/41853248 bytes)
+[686] xiangshan.test.resolvedIvyDeps 214s Downloading [88/88] artifacts (~9584604/10506482 bytes)
+[700] rocketchip.hardfloat.compile 6s
+[701] yunsuan.compile 6s
+... and 2 more threads
+==================================================================================================
+[704] [warn] /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/fudian/src/main/scala/fudian/FPToInt.scala:55:12: a pure expression does nothing in statement position; multiline expressions may require enclosing parentheses
+[704] [warn]   io.to_s2.sel_lpath
+[704] [warn]            ^
+[700] [info] done compiling
+[704] [warn] 5 deprecations (since 2.13.0); re-run with -deprecation for details
+[704] [warn] two warnings found
+[704] [info] done compiling
+[705] [warn] 7 deprecations
+[705] [warn] 2 deprecations (since Chisel 6.0)
+[705] [warn] 9 deprecations in total; re-run with -deprecation for details
+[705] [warn] three warnings found
+[705] [info] done compiling
+[711/773] rocketchip.compile
+[711] [info] compiling 316 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/rocketchip/compile.dest/classes ...
+[719/773] difftest.test.compile
+[719] [info] compiling 2 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/difftest/test/compile.dest/classes ...
+[719] [info] done compiling
+[701] [info] done compiling
+[711] [warn] 8 deprecations
+[711] [warn] 67 deprecations (since 2.13.0)
+[711] [warn] 1 deprecation (since 2.13.7)
+[711] [warn] 1 deprecation (since 6.6.0)
+[711] [warn] 1 deprecation (since 9)
+[711] [warn] 52 deprecations (since CDE 0.1)
+[711] [warn] 1 deprecation (since rocket-chip 1.2)
+[711] [warn] 131 deprecations in total; re-run with -deprecation for details
+[711] [warn] 19 feature warnings; re-run with -feature for details
+[711] [warn] 9 warnings found
+[711] [info] done compiling
+[731/773] utility.compile
+[731] [info] compiling 56 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/utility/compile.dest/classes ...
+[731] [warn] /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/utility/src/main/scala/utility/PerfCounterUtils.scala:50:26: a pure expression does nothing in statement position
+[731] [warn]       case regular(_) => true
+[731] [warn]                          ^
+[731] [warn] /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/utility/src/main/scala/utility/TLUtils/TLLogger.scala:91:5: match may not be exhaustive.
+[731] [warn] It would fail on the following input: TLBundleE()
+[731] [warn]     chn match {
+[731] [warn]     ^
+[731] [warn] 3 deprecations (since 2.13.0); re-run with -deprecation for details
+[731] [warn] three warnings found
+[731] [info] done compiling
+[737/773] huancun.compile
+[737] [info] compiling 44 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/huancun/compile.dest/classes ...
+[737] [warn] /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/huancun/src/main/scala/huancun/Slice.scala:443:44: non-variable type argument huancun.noninclusive.MSHR in type pattern Seq[huancun.noninclusive.MSHR] (the underlying of Seq[huancun.noninclusive.MSHR]) is unchecked since it is eliminated by erasure
+[737] [warn]     case (dir: noninclusive.Directory, ms: Seq[noninclusive.MSHR]) =>
+[737] [warn]                                            ^
+[737] [warn] /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/huancun/src/main/scala/huancun/Slice.scala:458:38: non-variable type argument huancun.inclusive.MSHR in type pattern Seq[huancun.inclusive.MSHR] (the underlying of Seq[huancun.inclusive.MSHR]) is unchecked since it is eliminated by erasure
+[737] [warn]     case (_: inclusive.Directory, _: Seq[inclusive.MSHR]) =>
+[737] [warn]                                      ^
+[737] [warn] 2 deprecations
+[737] [warn] 6 deprecations (since 2.13.0)
+[737] [warn] 8 deprecations in total; re-run with -deprecation for details
+[737] [warn] 3 feature warnings; re-run with -feature for details
+[737] [warn] 6 warnings found
+[737] [info] done compiling
+[743/773] coupledL2.compile
+[743] [info] compiling 60 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/coupledL2/compile.dest/classes ...
+[743] [warn] /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/coupledL2/src/main/scala/coupledL2/tl2chi/TL2CHICoupledL2.scala:129:20: non-variable type argument coupledL2.tl2chi.Slice in type pattern Seq[coupledL2.tl2chi.Slice] (the underlying of Seq[coupledL2.tl2chi.Slice]) is unchecked since it is eliminated by erasure
+[743] [warn]       case slices: Seq[Slice] =>
+[743] [warn]                    ^
+[743/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 360s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 280s
+[669] openNCB.resolvedIvyDeps 274s Downloading [4/4] artifacts (~7690346/8034045 bytes)
+[683] xiangshan.resolvedIvyDeps 274s Downloading [88/88] artifacts (~41099949/41853248 bytes)
+[686] xiangshan.test.resolvedIvyDeps 274s Downloading [88/88] artifacts (~9584604/10506482 bytes)
+[743] coupledL2.compile 3s
+==================================================================================================
+[743] [warn] 5 deprecations; re-run with -deprecation for details
+[743] [warn] two warnings found
+[743] [info] done compiling
+[747/773] openNCB.compile
+[747] [info] compiling 89 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/openNCB/compile.dest/classes ...
+[747] [info] done compiling
+[753/773] openLLC.compile
+[753] [info] compiling 27 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/openLLC/compile.dest/classes ...
+[753] [warn] 3 deprecations (since 2.13.0); re-run with -deprecation for details
+[753] [warn] one warning found
+[753] [info] done compiling
+[759/773] xiangshan.compile
+[759] [info] compiling 372 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/xiangshan/compile.dest/classes ...
+[759/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 420s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 340s
+[759] xiangshan.compile 4s
+==================================================================================================
+[759] [info] done compiling
+[766/773] xiangshan.test.compile
+[766] [info] compiling 20 Scala sources to /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/work/XiangShan/out/xiangshan/test/compile.dest/classes ...
+[766] [info] done compiling
+[770/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 480s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 400s
+==================================================================================================
+[770/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 540s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 460s
+==================================================================================================
+[770/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 600s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 520s
+==================================================================================================
+[770/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 660s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 580s
+==================================================================================================
+[770/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 720s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 640s
+==================================================================================================
+[770/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 780s
+[003] mill.scalalib.ZincWorkerModule.scalalibClasspath 700s
+==================================================================================================
+[773/773] xiangshan.test.testOnly
+[773] [32mVDot16Spec:[0m
+[773] [32mVDot16[0m
+[773] VDOT_ENCODING PASS register_encodings=65536 opcode_classes=512
+[773] [32m- should match only the experimental OPIVV encoding for every register field[0m
+[773] VDOT_CONFIG PASS cases=41
+[773] [32m- should reject each unsupported vector configuration[0m
+[773] VDOT_EXHAUSTIVE PASS signed_byte_pairs=65536 full128=checked
+[773] [32m- should exhaust all 65536 signed byte products through the full sixteen-lane sum[0m
+[773] VDOT_PIPELINE PASS one_hot_cases=64 enable_cycles=2048 full128=checked
+[773] [32m- should keep all lanes, independent stage holds and back-to-back signed results[0m
+[773] [36mRun completed in 5 seconds, 412 milliseconds.[0m
+[773] [36mTotal number of tests run: 4[0m
+[773] [36mSuites: completed 1, aborted 0[0m
+[773] [36mTests: succeeded 4, failed 0, canceled 0, ignored 0, pending 0[0m
+[773] [32mAll tests passed.[0m
+[773/773] =================== xiangshan.test.testOnly xiangshan.VDot16Spec ================== 838s
+==================================================================================================

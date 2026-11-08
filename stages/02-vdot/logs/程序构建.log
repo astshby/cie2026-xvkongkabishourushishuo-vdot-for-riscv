@@ -1,0 +1,52 @@
+make: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/vdot'
+# Building kks-vdot [riscv64-xs] with AM_HOME {/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am}
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+# Building lib-klib [riscv64-xs]
+make[2]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
+# Building lib-am [riscv64-xs]
++ AS src/nemu/common/mainargs.S
++ AR -> build/am-riscv64-xs.a
+make[2]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+# Creating binary image [riscv64-xs]
++ LD -> build/kks-vdot-riscv64-xs.elf
+/opt/riscv/bin/riscv64-unknown-linux-gnu-ld: warning: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/vdot/build/kks-vdot-riscv64-xs.elf has a LOAD segment with RWX permissions
++ OBJCOPY -> build/kks-vdot-riscv64-xs.bin
+make: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/vdot'
+make: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/illegal'
+# Building kks-illegal [riscv64-xs] with AM_HOME {/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am}
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
++ CC main.c
+# Building lib-klib [riscv64-xs]
+make[2]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
+# Building lib-am [riscv64-xs]
++ AS src/nemu/common/mainargs.S
++ AR -> build/am-riscv64-xs.a
+make[2]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+# Creating binary image [riscv64-xs]
++ LD -> build/kks-illegal-riscv64-xs.elf
+/opt/riscv/bin/riscv64-unknown-linux-gnu-ld: warning: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/illegal/build/kks-illegal-riscv64-xs.elf has a LOAD segment with RWX permissions
++ OBJCOPY -> build/kks-illegal-riscv64-xs.bin
+make: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/illegal'
+make: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/vadd'
+# Building kks-vadd [riscv64-xs] with AM_HOME {/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am}
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+make[1]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
+# Building lib-klib [riscv64-xs]
+make[2]: Entering directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/libs/klib'
+# Building lib-am [riscv64-xs]
++ AS src/nemu/common/mainargs.S
++ AR -> build/am-riscv64-xs.a
+make[2]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am/am'
+make[1]: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/xs-env/nexus-am'
+# Creating binary image [riscv64-xs]
++ LD -> build/kks-vadd-riscv64-xs.elf
+/opt/riscv/bin/riscv64-unknown-linux-gnu-ld: warning: /home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/vadd/build/kks-vadd-riscv64-xs.elf has a LOAD segment with RWX permissions
++ OBJCOPY -> build/kks-vadd-riscv64-xs.bin
+make: Leaving directory '/home/hbyasts/2-corecode/riscv-xiangshan/cie2026-xvkongkabishourushishuo-vdot-for-riscv/tests/vadd'

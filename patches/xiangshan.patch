@@ -1,0 +1,68 @@
+diff --git a/src/main/scala/xiangshan/backend/decode/VecDecoder.scala b/src/main/scala/xiangshan/backend/decode/VecDecoder.scala
+index 376419107..b80313fdf 100644
+--- a/src/main/scala/xiangshan/backend/decode/VecDecoder.scala
++++ b/src/main/scala/xiangshan/backend/decode/VecDecoder.scala
+@@ -186,6 +186,8 @@ case class VST(src2: BitPat, fuOp: BitPat, strided: Boolean = false, indexed: Bo
+ 
+ object VecDecoder extends DecodeConstants {
+   val opivv: Array[(BitPat, XSDecodeBase)] = Array(
++    // KKS dot16: one complete vector register per source, one vector result.
++    KksVDot.instruction -> OPIVV(FuType.vipu, BitPat(KksVDot.opType), T, F, F),
+     VADD_VV         -> OPIVV(FuType.vialuF, VialuFixType.vadd_vv, T, F, F),
+     VSUB_VV         -> OPIVV(FuType.vialuF, VialuFixType.vsub_vv, T, F, F),
+ 
+diff --git a/src/main/scala/xiangshan/backend/fu/wrapper/VIPU.scala b/src/main/scala/xiangshan/backend/fu/wrapper/VIPU.scala
+index 01346b645..1e0769200 100644
+--- a/src/main/scala/xiangshan/backend/fu/wrapper/VIPU.scala
++++ b/src/main/scala/xiangshan/backend/fu/wrapper/VIPU.scala
+@@ -32,6 +32,9 @@ import xiangshan.backend.fu.vector.{Mgu, Utils, VecPipedFuncUnit, VecSrcTypeModu
+ import xiangshan.SrcType
+ import yunsuan.vector.alu.{VAluOpcode, VIAlu}
+ import yunsuan.{OpType, VipuType}
++import xiangshan.backend.decode.KksVDot
++import xiangshan.backend.fu.vector.{VDot16, VDot16Layout}
++import xiangshan.ExceptionNO
+ 
+ class VIAluDecodeResultBundle extends Bundle {
+   val opcode = UInt(6.W)
+@@ -105,6 +108,16 @@ class VIPU(cfg: FuConfig)(implicit p: Parameters) extends VecPipedFuncUnit(cfg)
+   // modules
+   private val decoder = Module(new VIAluDecoder)
+   private val vialu   = Module(new VIAlu)
++  // 固定完整128位向量和两拍时序，配置改变时在生成电路阶段直接报错。
++  require(dataWidth == VDot16Layout.VectorBits)
++  require(latency == VDot16Layout.PipelineStages)
++  // 复用VIPU控制流水、寄存器端口及冲刷协议。
++  private val isDot16 = fuOpType === KksVDot.opType
++  private val dot16 = Module(new VDot16)
++  dot16.io.vs1 := vs1
++  dot16.io.vs2 := vs2
++  dot16.io.enableS1 := regEnable(1) && isDot16
++  dot16.io.enableS2 := regEnable(2) && (ctrlVec(1).fuOpType === KksVDot.opType)
+ 
+   /**
+    * [[decoder]]'s in connection
+@@ -125,7 +138,7 @@ class VIPU(cfg: FuConfig)(implicit p: Parameters) extends VecPipedFuncUnit(cfg)
+    */
+   vialu.io match {
+     case subIO =>
+-      subIO.in.valid            := io.in.valid
++      subIO.in.valid            := io.in.valid && !isDot16
+       subIO.in.bits.opcode.op   := decoder.io.out.opcode
+       subIO.in.bits.info.vm     := vm
+       subIO.in.bits.info.ma     := vma
+@@ -146,5 +159,13 @@ class VIPU(cfg: FuConfig)(implicit p: Parameters) extends VecPipedFuncUnit(cfg)
+       subIO.in.bits.mask        := srcMask
+   }
+ 
+-  io.out.bits.res.data := vialu.io.out.bits.vd
++  private val outIsDot16 = outCtrl.fuOpType === KksVDot.opType
++  io.out.bits.res.data := Mux(outIsDot16, dot16.io.result, vialu.io.out.bits.vd)
++
++  // 只支持规格里明确约定的完整 dot16。使用输出级的配置/控制，
++  // 保证与输出数据属于同一条指令，避免背靠背操作时误用输入级配置。
++  when(outIsDot16) {
++    io.out.bits.ctrl.exceptionVec.get(ExceptionNO.illegalInstr) :=
++      KksVDot.unsupported(outVecCtrl.vill, outVecCtrl.vsew, outVlmul, outVl, outVstart, outVm)
++  }
+ }

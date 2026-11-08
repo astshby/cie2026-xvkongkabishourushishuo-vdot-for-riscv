@@ -23,6 +23,9 @@ echo "Running $app ($variant/$mode), full log: $log"
 set +e
 (
   printf 'KKS_RUN mode=%s variant=%s\n' "$mode" "$variant"
+  if [[ "$variant" == custom ]]; then
+    python3 "$KKS_ROOT/scripts/record_emu_build.py" --check || exit 2
+  fi
   sha256sum "$emu" "$KKS_ROOT/build/apps/$app.bin"
   if [[ "$mode" == diff ]]; then sha256sum "$ref"; fi
   export NOOP_HOME="$(dirname "$(dirname "$emu")")"
@@ -32,6 +35,7 @@ set +e
 ) > "$log" 2>&1
 rc=$?
 set -e
+printf 'KKS_RUN_EXIT code=%d\n' "$rc" >> "$log"
 rg 'reference model|hello xiangshan|PASS|FAIL|HIT .*TRAP|instrCnt|Host time spent|KKS_' "$log" | tail -35 || true
 [[ "$rc" == 0 ]] || { echo "emu failed: exit=$rc" >&2; exit "$rc"; }
 rg -q 'HIT GOOD TRAP' "$log" || { echo '未找到 GOOD TRAP，不能视为通过' >&2; exit 1; }
